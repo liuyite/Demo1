@@ -40,3 +40,23 @@ function total(){
   });
   return total;
 }
+
+let kits = {};
+//读取本地存储数据
+kits.onLoadData = function(key){
+  let str = localStorage.getItem(key);
+  let arr ;
+  if(str === null){
+     arr = [];
+  }
+  else{
+     arr = JSON.parse(str);
+  }
+  return arr;
+}
+
+//保存本地存储数据
+kits.onSaveData = function(key, arr){
+  var json = JSON.stringify(arr);
+  localStorage.setItem(key, json);
+}
